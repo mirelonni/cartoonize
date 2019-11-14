@@ -71,22 +71,26 @@ def sat_val_increase(image, satuartion_plus, value_plus):
 
 
 def scale_hard(image, scale_factor):
+
+    if scale_factor == 1:
+        return image
+
     return cv2.resize(
         image, (image.shape[1] * scale_factor, image.shape[0] * scale_factor), interpolation=cv2.INTER_NEAREST)
 
 
-input_file = "input.png"
+input_file = "input.jpg"
 
 orig = cv2.imread(input_file)
 
-orig = cv2.resize(orig, (400, 400))
+# orig = cv2.resize(orig, (400, 400))
 
-number_of_colors = 8
+number_of_colors = 16
 
 satuartion_plus = 70
 value_plus = 40
 
-scale_factor = 20
+scale_factor = 1
 
 quant = quantize(orig, number_of_colors)
 cartoon = cartoon_image(quant)
