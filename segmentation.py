@@ -84,6 +84,7 @@ input_file = "input.jpg"
 orig = cv2.imread(input_file)
 
 # orig = cv2.resize(orig, (400, 400))
+orig = cv2.GaussianBlur(orig, (5, 5), 0)
 
 number_of_colors = 16
 
